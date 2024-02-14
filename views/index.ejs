@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="/style.css">
+</head> 
+<body>
+    <h1 class="heading">ZIMA INSTAGRAM</h1>
+    <a href="http://localhost:3000/posts/new" class="create-post-link a">Create a Post</a>
+    <% for(let post of data) { %> 
+        <div>
+            <h2 class="username"> @<%= post.username %> </h2>
+            <p class="content"><%= post.content %></p>
+        </div>
+        <a class="detail" href="http://localhost:3000/posts/<%=post.id %>" >see in detail</a> &nbsp;
+        <a class="detail" href="http://localhost:3000/posts/<%=post.id %>/edit" >edit</a>&nbsp;&nbsp;
+
+        <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+            <button class="btn" type="submit">Delete post</button>
+        </form>
+        <% } %>
+
+</body>
+</html>
